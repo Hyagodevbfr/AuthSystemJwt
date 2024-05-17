@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\workspace\\AuthSystemJwt\\API\\API.csproj": {}
+    "C:\\workspace\\AuthSystemJwt\\API\\API.csproj": {}
   },
   "projects": {
-    "c:\\workspace\\AuthSystemJwt\\API\\API.csproj": {
+    "C:\\workspace\\AuthSystemJwt\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\workspace\\AuthSystemJwt\\API\\API.csproj",
+        "projectUniqueName": "C:\\workspace\\AuthSystemJwt\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "c:\\workspace\\AuthSystemJwt\\API\\API.csproj",
+        "projectPath": "C:\\workspace\\AuthSystemJwt\\API\\API.csproj",
         "packagesPath": "C:\\Users\\hyago\\.nuget\\packages\\",
-        "outputPath": "c:\\workspace\\AuthSystemJwt\\API\\obj\\",
+        "outputPath": "C:\\workspace\\AuthSystemJwt\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

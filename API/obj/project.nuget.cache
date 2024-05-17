@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F9iqik4iibTYqJFwF/ze72ciCTTjbxs/52gUSLe/D7pIuLlo1JD4u8XwczYLhBLzJRD/NmLx4vb7wQgTAqjHKA==",
+  "dgSpecHash": "16R9kP7NKqg0EV4E/zGvtWss8upPs11T3i3VTAfDURxi/I0j6i3cA/U2XK8srx8wiC90irN4iiM8xfCT4AEwFg==",
   "success": true,
-  "projectFilePath": "c:\\workspace\\AuthSystemJwt\\API\\API.csproj",
+  "projectFilePath": "C:\\workspace\\AuthSystemJwt\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hyago\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\hyago\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.5\\microsoft.aspnetcore.authentication.jwtbearer.8.0.5.nupkg.sha512",
