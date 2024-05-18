@@ -1,11 +1,13 @@
 using API.Dtos;
 using API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class RolesController : Controller
@@ -49,5 +51,45 @@ namespace API.Controllers
             }).ToListAsync();
             return Ok(roles);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            var role = await _roleManager.FindByIdAsync(id);
+
+            if (role is null)
+                return NotFound("Role not found.");
+
+            var result = await _roleManager.DeleteAsync(role);
+
+            if (result.Succeeded)
+                return Ok(new { message = "Role Deleted successfully." });
+
+            return BadRequest("Role deletion failed.");
+        }
+
+        [HttpPost("assign")]
+        public async Task<IActionResult> AssignRole([FromBody] RoleAssignDto roleAssignDto)
+        {
+            var user = await _userManager.FindByIdAsync(roleAssignDto.UserId);
+
+            if (user is null)
+                return NotFound("User not found.");
+
+            var role = await _roleManager.FindByIdAsync(roleAssignDto.RoleId);
+            if (role is null)
+                return NotFound("Role not found.");
+
+            var result = await _userManager.AddToRoleAsync(user, role.Name!);
+
+            if (result.Succeeded)
+                return Ok(new { message = "Role assigned successfully" });
+
+            var error = result.Errors.FirstOrDefault();
+
+            return BadRequest(error!.Description);
+
+
+        }
+
     }
 }
