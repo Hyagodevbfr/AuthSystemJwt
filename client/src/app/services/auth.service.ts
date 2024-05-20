@@ -5,6 +5,7 @@ import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthResponse } from '../interfaces/auth-response';
 import { jwtDecode } from 'jwt-decode';
+import { RegisterRequest } from '../interfaces/Register-Request';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class AuthService {
         return response;
       })
     );
+  }
+
+  register(data:RegisterRequest): Observable<AuthResponse>{
+    return this.http.post<AuthResponse>(`${this.apiUrl}account/register`, data);
   }
 
   getUserDetail=()=>{
