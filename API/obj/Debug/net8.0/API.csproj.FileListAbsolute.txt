@@ -140,3 +140,4 @@ C:\workspace\AuthSystemJwt\API\obj\Debug\net8.0\refint\API.dll
 C:\workspace\AuthSystemJwt\API\obj\Debug\net8.0\API.pdb
 C:\workspace\AuthSystemJwt\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\workspace\AuthSystemJwt\API\obj\Debug\net8.0\ref\API.dll
+C:\workspace\AuthSystemJwt\API\bin\Debug\net8.0\RestSharp.dll
