@@ -173,7 +173,7 @@ namespace API.Controllers
                 return BadRequest(new AuthResponseDto
                 {
                     IsSuccess = false,
-                    Message = "Failed to send email."
+                    Message = response.Content!.ToString()
                 });
             }
 
