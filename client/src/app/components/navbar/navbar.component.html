@@ -35,7 +35,12 @@
                             </mat-icon>
                             <span>Logout</span>
                         </button>
-                    </mat-menu>                
+                    </mat-menu>
+                    <a *ngIf="userDetail?.roles.includes('Admin')"mat-button routerLink="/users">
+                    <mat-icon>
+                        groups
+                    </mat-icon>
+                    </a>                
                 </div>
             </div>
         }@else{
