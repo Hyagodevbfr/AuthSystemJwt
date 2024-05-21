@@ -6,20 +6,27 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RoleListComponent } from '../../components/role-list/role-list.component';
 import { AsyncPipe } from '@angular/common';
+import { MatFormField } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-role',
   standalone: true,
-  imports: [RoleFormComponent,RoleListComponent,AsyncPipe,MatSnackBarModule],
+  imports: [RoleFormComponent,RoleListComponent,AsyncPipe, MatFormField,MatSelectModule,],
   templateUrl: './role.component.html',
   styleUrl: './role.component.css'
 })
 export class RoleComponent {
   roleService=inject(RoleService);
+  authService=inject(AuthService);
   errorMessage='';
   role:RoleCreateRequest = {} as RoleCreateRequest;
   roles$ = this.roleService.getRoles();
-  snackBar = inject(MatSnackBar)
+  snackBar = inject(MatSnackBar);
+  users$ = this.authService.getAll();
+  selectedUser:string ='';
+  selectedRole:string ='';
 
   createRole(role: RoleCreateRequest){
     this.roleService.createRole(role).subscribe({
@@ -52,5 +59,24 @@ export class RoleComponent {
         });
       }
     });
+
   }
+
+  assignRole(){
+    this.roleService.assignRole(this.selectedUser, this.selectedRole).subscribe({
+      next:(response) =>{
+        this.roles$ = this.roleService.getRoles();
+        this.snackBar.open("Role deleted successfully.","Close",{
+          duration:3000
+        });
+      },
+      error:(error: HttpErrorResponse)=>{
+        this.snackBar.open(error.message,"Close",{
+          duration:3000
+        });
+      }
+    });
+  }
+
+
 }
