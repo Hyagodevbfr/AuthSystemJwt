@@ -27,7 +27,7 @@ export class ForgotPasswordComponent {
         if(response.isSuccess){
           this.matSnackBar.open(response.message, "Close", {
             duration:5000
-          })
+          });
           this.showEmailSent = true;
         }else{
           this.matSnackBar.open(response.message, "Close", {
